@@ -21,9 +21,10 @@
 //
 
 include <pins.scad>
+// See http://www.thingiverse.com/thing:33790/#files
 
 //Constructs a roughed out arduino board
-//Current only USB, power and headers
+//Currently only USB, power and headers
 module arduino(boardType = UNO) {
   //The PCB with holes
   difference() {
@@ -412,6 +413,7 @@ YUN = 8;
 INTELGALILEO = 9;
 TRE = 10;
 ETHERNET = 11;
+PERMAPROTOHALF = 12;
 
 /********************************** MEASUREMENTS **********************************/
 pcbHeight = 1.7;
@@ -461,6 +463,11 @@ megaHoles = [
   [  2.54, 90.17 ],
   [  50.8, 96.52 ]
   ];
+  
+permaProtoHalfHoles = [
+  [  4.00, 25.40 ],
+  [  76.00, 25.40 ]
+  ];  
 
 boardHoles = [ 
   ngHoles,        //NG
@@ -474,7 +481,8 @@ boardHoles = [
   0,              //Yun
   0,              //Intel Galileo
   0,              //Tre
-  unoHoles        //Ethernet
+  unoHoles,        //Ethernet
+  permaProtoHalfHoles // PermaProto half-size
   ];
 
 /********************************** BOARD SHAPES **********************************/
@@ -501,6 +509,13 @@ megaBoardShape = [
   [  2.54, 99.06 ],
   [  0.0, 96.52 ]
   ];
+  
+permaProtoHalfShape = [
+  [ 0.0, 0.0 ],
+  [ 0.0, 51.0 ],
+  [ 81.4, 51.0 ],
+  [ 81.4, 0.0 ]
+  ];  
 
 boardShapes = [   
   ngBoardShape,   //NG
@@ -514,13 +529,15 @@ boardShapes = [
   0,              //Yun
   0,              //Intel Galileo
   0,              //Tre
-  ngBoardShape    //Ethernet
+  ngBoardShape,    //Ethernet
+  permaProtoHalfShape // Adafruit PermaProto 1/2 size
   ];  
 
 /*********************************** COMPONENTS ***********************************/
 
 //Component data. 
 //[position, dimensions, direction(which way would a cable attach), type(header, usb, etc.), color]
+// NOTE that boards won't render unless some component defined...
 ngComponents = [
   [[1.27, 17.526, 0], [headerWidth, headerWidth * 10, headerHeight], [0, 0, 1], HEADER_F, "Black" ],
   [[1.27, 44.45, 0], [headerWidth, headerWidth * 8, headerHeight ], [0, 0, 1], HEADER_F, "Black" ],
@@ -585,6 +602,10 @@ dueComponents = [
   [[40.7, -1.8, 0], [9.0, 13.2, 10.9], [0, -1, 0], POWER, "Black" ]
   ];
   
+permaProtoHalfComponents = [
+  [[1.27, 1.27, 0], [headerWidth, headerWidth * 10, headerHeight], [ 0, 0, 1], HEADER_F, "Black"]
+ ];
+  
 components = [
   ngComponents,         //NG
   ngComponents,         //Diecimila
@@ -597,7 +618,8 @@ components = [
   0,                    //Yun
   0,                    //Intel Galileo
   0,                    //Tre
-  etherComponents       //Ethernet
+  etherComponents,      //Ethernet
+  permaProtoHalfComponents                     // PermaProtoHalf
   ];
 
 /****************************** NON-BOARD PARAMETERS ******************************/
