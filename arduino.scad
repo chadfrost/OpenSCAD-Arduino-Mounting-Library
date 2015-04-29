@@ -465,11 +465,13 @@ megaHoles = [
   [  50.8, 96.52 ]
   ];
   
+// PermaProto 1/2 size holes
 permaProtoHalfHoles = [
   [  4.00, 25.40 ],
   [  76.00, 25.40 ]
   ];
   
+// custom board holes (in this case, based on PermaProto 1/2 board, offset)
 customHoles = [
   [  4.00, 25.40+10 ],
   [  76.00, 25.40+10 ]
@@ -621,7 +623,7 @@ permaProtoHalfComponents = [
   [[1.27, 1.27, 0], [headerWidth, headerWidth * 10, headerHeight], [ 0, 0, 1], HEADER_F, "Black"]
  ];
  
- customComponents  = permaProtoHalfComponents;
+customComponents  = permaProtoHalfComponents;
   
 components = [
   ngComponents,         //NG
@@ -636,8 +638,8 @@ components = [
   0,                    //Intel Galileo
   0,                    //Tre
   etherComponents,      //Ethernet
-  permaProtoHalfComponents, // PermaProtoHalf
-  customComponents
+  permaProtoHalfComponents, //PermaProtoHalf
+  customComponents      //Custom
   ];
 
 /****************************** NON-BOARD PARAMETERS ******************************/

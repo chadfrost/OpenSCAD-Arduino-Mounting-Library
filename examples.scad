@@ -15,6 +15,9 @@ translate( [unoDimensions[0] + 50, 0, 0] )
 
 translate( [-(unoDimensions[0] + 50), 0, 0] )
 	arduino(LEONARDO);
+    
+translate( [-2*(unoDimensions[0] + 50), 0, 0] )
+    arduino(PERMAPROTOHALF);
 
 translate([0, 0, -75]) {
 	enclosure();
@@ -26,6 +29,11 @@ translate([0, 0, -75]) {
 		standoffs(LEONARDO, mountType=PIN);
 		boardShape(LEONARDO, offset = 3);
 	}
+    
+    translate( [-2*(unoDimensions[0] + 50), 0, 0] ) union() {
+        standoffs(PERMAPROTOHALF, mountType=PIN);
+		boardShape(PERMAPROTOHALF, offset = 5);
+    }
 }
 
 translate([0, 0, 75]) {
