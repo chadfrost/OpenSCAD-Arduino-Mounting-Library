@@ -414,6 +414,7 @@ INTELGALILEO = 9;
 TRE = 10;
 ETHERNET = 11;
 PERMAPROTOHALF = 12;
+CUSTOM = 13;
 
 /********************************** MEASUREMENTS **********************************/
 pcbHeight = 1.7;
@@ -467,7 +468,12 @@ megaHoles = [
 permaProtoHalfHoles = [
   [  4.00, 25.40 ],
   [  76.00, 25.40 ]
-  ];  
+  ];
+  
+customHoles = [
+  [  4.00, 25.40+10 ],
+  [  76.00, 25.40+10 ]
+];
 
 boardHoles = [ 
   ngHoles,        //NG
@@ -482,7 +488,8 @@ boardHoles = [
   0,              //Intel Galileo
   0,              //Tre
   unoHoles,        //Ethernet
-  permaProtoHalfHoles // PermaProto half-size
+  permaProtoHalfHoles, // PermaProto half-size
+  customHoles     //Custom
   ];
 
 /********************************** BOARD SHAPES **********************************/
@@ -515,7 +522,14 @@ permaProtoHalfShape = [
   [ 0.0, 51.0 ],
   [ 81.4, 51.0 ],
   [ 81.4, 0.0 ]
-  ];  
+  ];
+  
+customShape = [
+  [  0.0, 0.0 ],
+  [ 0.0, 61.0 ],
+  [ 100.0, 61.0 ],
+  [ 100.0, 0.0 ]
+  ];
 
 boardShapes = [   
   ngBoardShape,   //NG
@@ -530,7 +544,8 @@ boardShapes = [
   0,              //Intel Galileo
   0,              //Tre
   ngBoardShape,    //Ethernet
-  permaProtoHalfShape // Adafruit PermaProto 1/2 size
+  permaProtoHalfShape, // Adafruit PermaProto 1/2 size
+  customShape     //Custom board
   ];  
 
 /*********************************** COMPONENTS ***********************************/
@@ -605,6 +620,8 @@ dueComponents = [
 permaProtoHalfComponents = [
   [[1.27, 1.27, 0], [headerWidth, headerWidth * 10, headerHeight], [ 0, 0, 1], HEADER_F, "Black"]
  ];
+ 
+ customComponents  = permaProtoHalfComponents;
   
 components = [
   ngComponents,         //NG
@@ -619,7 +636,8 @@ components = [
   0,                    //Intel Galileo
   0,                    //Tre
   etherComponents,      //Ethernet
-  permaProtoHalfComponents                     // PermaProtoHalf
+  permaProtoHalfComponents, // PermaProtoHalf
+  customComponents
   ];
 
 /****************************** NON-BOARD PARAMETERS ******************************/
