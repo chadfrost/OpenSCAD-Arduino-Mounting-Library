@@ -415,6 +415,7 @@ TRE = 10;
 ETHERNET = 11;
 PERMAPROTOHALF = 12;
 CUSTOM = 13;
+LCD16X2 = 14;
 
 /********************************** MEASUREMENTS **********************************/
 pcbHeight = 1.7;
@@ -477,6 +478,14 @@ customHoles = [
   [  76.00, 25.40+10 ]
 ];
 
+// LCD 16x2 display mounting holes
+lcd16x2Holes = [
+  [  2.5, 2.5 ],
+  [  2.5, 33.5 ],
+  [  77.5, 2.5 ],
+  [  77.5, 33.5 ]
+];
+
 boardHoles = [ 
   ngHoles,        //NG
   ngHoles,        //Diecimila
@@ -491,7 +500,8 @@ boardHoles = [
   0,              //Tre
   unoHoles,        //Ethernet
   permaProtoHalfHoles, // PermaProto half-size
-  customHoles     //Custom
+  customHoles,     //Custom
+  lcd16x2Holes     //LCD 16x2
   ];
 
 /********************************** BOARD SHAPES **********************************/
@@ -532,6 +542,13 @@ customShape = [
   [ 100.0, 61.0 ],
   [ 100.0, 0.0 ]
   ];
+  
+lcd16x2Shape = [
+  [ 0.0, 0.0 ],
+  [ 0.0, 36.0 ],
+  [ 80.0, 36.0 ],
+  [ 80.0, 0.0 ]
+];
 
 boardShapes = [   
   ngBoardShape,   //NG
@@ -545,9 +562,10 @@ boardShapes = [
   0,              //Yun
   0,              //Intel Galileo
   0,              //Tre
-  ngBoardShape,    //Ethernet
+  ngBoardShape,   //Ethernet
   permaProtoHalfShape, // Adafruit PermaProto 1/2 size
-  customShape     //Custom board
+  customShape,     //Custom board
+  lcd16x2Shape    //LCD 16x2
   ];  
 
 /*********************************** COMPONENTS ***********************************/
